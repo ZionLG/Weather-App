@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <title>Weather App</title>
   </head>
   <body>
-    <form>
-      <input type="input" placeholder="Enter city name" id="city" />
-    </form>
+    <div id="city-div">
+      <span>Right now in</span>
+      <form>
+        <input
+          type="input"
+          id="city"
+          onkeydown="this.style.width = 'calc(' + (this.value.length) + 'ch + 20px)';"
+          onkeyup="this.style.width = 'calc(' + (this.value.length) + 'ch + 20px)';"
+        />
+      </form>
+      <span>, there's</span>
+      <span id="city-status"></span>
+    </div>
+    <div id="main-info">
+      <div id="status-pic"></div>
+      <div id="city-temp">
+        <span><span id="temp">00</span>&#8451;</span>
+        <span>Feels like <span id="temp-feels-like">00</span>&#8451;</span>
+      </div>
+      <div id="extra-info">
+        <div id="wind">
+          <span class="material-symbols-outlined">air</span>
+          <span><span id="wind-speed">0</span><span>km\m</span></span>
+        </div>
+        <div id="humidity">
+          <span class="material-symbols-outlined">humidity_low</span>
+          <span><span id="humidity-level">0</span><span>%</span></span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

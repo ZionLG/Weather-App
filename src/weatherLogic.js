@@ -6,9 +6,10 @@ const weatherLogic = (() => {
         `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${_apiKey}&units=${unit}`
       );
       const data = await response.json();
+      console.log(data);
       return data;
     } catch (error) {
-      console.log(error);
+      return data;
     }
   };
   const getprocessedData = async (cityName, unit) => {
@@ -25,7 +26,15 @@ const weatherLogic = (() => {
         wind_speed: data.wind.speed,
       };
     } catch (error) {
-      console.error("Not Found");
+      return {
+        name: cityName,
+        country: "??",
+        temp: 0,
+        feels_like: 0,
+        description: "",
+        humidity: 0,
+        wind_speed: 0,
+      };
     }
   };
   return { getprocessedData };
