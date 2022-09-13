@@ -1,14 +1,13 @@
 const weatherLogic = (() => {
-  const _apiKey = "0Oaj07vOtXRsOSIVFVMF8Fi7e1s1Se2L";
+  const _apiKey = "4a6ad7f18848adcfbfcc05c698c9343a";
   const getCityData = async (cityName) => {
     try {
       const response = await fetch(
-        `https://api.giphy.com/v1/gifs/translate?api_key=${_apiKey}&s=${cityName}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${_apiKey}`
       );
-      const data = await response.json();
-      console.log(data);
+      return await response.json();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
